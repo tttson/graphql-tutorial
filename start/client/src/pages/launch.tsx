@@ -14,6 +14,8 @@ import { LAUNCH_TILE_DATA } from './launches';
 export const GET_LAUNCH_DETAILS = gql`
   query LaunchDetails($launchId: ID!) {
     launch(id: $launchId) {
+      # query your virtual field on the launch detail page  and specify the @client directive:
+      isInCart @client
       # id
       site
       # isBooked
