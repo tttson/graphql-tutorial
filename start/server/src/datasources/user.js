@@ -70,6 +70,11 @@ class UserAPI extends DataSource {
       : [];
   }
 
+  async getAllUsers() {
+    const users = await this.store.users.findAll();
+    return users ? users : 'no users found';
+  }
+
   async isBookedOnLaunch({ launchId }) {
     if (!this.context || !this.context.user) return false;
     const userId = this.context.user.id;
